@@ -3,22 +3,26 @@ import static org.junit.Assert.assertEquals;
 
  
 
-public class MaxFunctionTest {
+public class MaxValueTest {
     @Test
-    public void testMaxFunction() {
-        assertEquals(2, max(1, 2));
-        assertEquals(5, max(-1, 5));
-        assertEquals(10, max(10, 10));
+    public void testMaxWithPositiveNumbers() {
+        assertEquals(5, MaxValue.max(3, 5));
+        assertEquals(5, MaxValue.max(5, 3));
     }
 
  
 
-    public int max(int x, int y) {
-        if (x > y) {
-            return x;
-        } else {
-            return y;
-        }
+    @Test
+    public void testMaxWithNegativeNumbers() {
+        assertEquals(-3, MaxValue.max(-5, -3));
+        assertEquals(-3, MaxValue.max(-3, -5));
+    }
+
+ 
+
+    @Test
+    public void testMaxWithEqualNumbers() {
+        assertEquals(3, MaxValue.max(3, 3));
+        assertEquals(-5, MaxValue.max(-5, -5));
     }
 }
-
